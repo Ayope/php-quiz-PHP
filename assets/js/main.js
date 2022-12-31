@@ -24,6 +24,25 @@ var score = 0;
 let counter;
 let timeValue = 30;
 
+var questions;
+
+function getQuestions(){
+    var ajax = new XMLHttpRequest();
+    var method = "GET";
+    var url = "../../script/getQuestions.php"
+    var async = false;
+
+    ajax.onreadystatechange =  function(){
+        if(this.readyState == 4 && this.status == 200){
+            questions = JSON.parse(this.responseText);
+        }
+    }
+    ajax.open(method, url, async);
+    ajax.send();
+}
+
+getQuestions();
+
 function shuffle(array){
     for(var i = array.length-1 ; i>0; i--){
         var j = Math.floor(Math.random()*(i+1));
@@ -36,7 +55,7 @@ function shuffle(array){
 
 shuffle(questions);
 
-function showQuest(index){  
+function showQuest(index){
     
     questionNum.innerText = que_count + 1;
     
