@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['name'])){
+        header('location: ./view/account/login.php');
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +33,13 @@
                 <div class="step-name">Résultat</div>
             </div>
         </div>
+
     </header>
   
     <main style="margin: 0px;">
         <div class="logo">
             <i class="uil uil-star" style="font-size: 200px; height: 180px;"></i>
-            <h1 >PHP Quiz</h1>
+            <h1>Welcome <?= $_SESSION['name'];?> to PHP Quiz</h1>
         </div>    
         
         <hr>
@@ -43,11 +54,17 @@
         </div>
         
         <div class="start">
-            <a href="./view/quiz/page.html">
+            <a href="./view/quiz/page.php">
                 <button class="startButton">START</button>
             </a>
+        </div>
 
-    <script src="./assets/js/questions.js"></script>
+        
+        <div>
+            <a href="./script/logout.php"><i class="uil uil-sign-out-alt" style="font-size: 45px; position: absolute; top: 1px;"></i></a>
+        </div>
+    </main>    
+    <!-- <script src="./assets/js/questions.js"></script> -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

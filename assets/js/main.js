@@ -40,7 +40,6 @@ function getQuestions(){
     ajax.open(method, url, async);
     ajax.send();
 }
-
 getQuestions();
 
 function shuffle(array){
@@ -132,7 +131,7 @@ function showScore(){
     mainQuestPart.style.display = 'none';
     scorePart.style.display = 'flex';
 
-    scoreNum.innerHTML = '<h2>'+(score/10)*100+'%</h2>'
+    scoreNum.innerHTML = '<h3>Your Score is '+score+' out of 10</h3>'
 
     progBar.style.display = 'none';
 }
